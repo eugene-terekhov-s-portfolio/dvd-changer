@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>DVD-changer: New Disk</title>
+</head>
+<body>
+<h1>My disks:</h1>
+
+<div id="navigationMenu">
+	<ul>
+		<li><a href="/newDisk">Новый диск</a></li>
+		<li><a href="/freeDisks">Доступные диски</a></li>
+		<li><a href="/users">Пользователи системы</a></li>
+	</ul>
+</div>
+
+<h2>Новый диск в коллекции пользователя <span th:text="${user.name}">User</span></h2>
+<hr />
+<form action="/newDisk" method="POST">
+	<input type="hidden" name="owner_id" th:value="${user.id}" />
+	<div>
+		<label for="movieTitle">Название фильма:</label>
+		<input type="text" name="movie_title" id="movieTitle" />
+	</div>
+	<button type="submit">Добавить диск</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+INSERT INTO "DVD"."C_USERS" VALUES (
+	NEXTVAL('DVD.SEQ_C_USERS'), 'Eugene'
+);
+
+INSERT INTO "DVD"."R_DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_R_DISKS'), 'Рыбка Поньо на утесе', 1 
+);
+INSERT INTO "DVD"."R_DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_R_DISKS'), 'Крупная рыба', 1 
+);
+INSERT INTO "DVD"."R_DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_R_DISKS'), 'Жизнь как чудо', 1 
+);

@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Spring Security Example</title>
+    <title>DVD-Changer: Home Page</title>
 </head>
 <body>
-<h1>Welcome!</h1>
+<h1>My disks:</h1>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<div id="navigationMenu">
+	<ul>
+		<li><a href="/newDisk">Новый диск</a></li>
+		<li><a href="/freeDisks">Доступные диски</a></li>
+		<li><a href="/users">Пользователи системы</a></li>
+	</ul>
+</div>
+
+<div id="disksCollection">
+	<ul>
+		<li th:each="disk : ${user.disks}" th:text="${disk.movieTitle}">Content</li>
+	</ul>
+</div>
+
+
 </body>
 </html>
