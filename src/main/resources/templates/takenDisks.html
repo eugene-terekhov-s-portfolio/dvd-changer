@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>DVD-changer: New Disk</title>
+    <title>DVD-changer: Taken Disks</title>
 </head>
 <body>
 <h1>My disks:</h1>
@@ -15,15 +15,13 @@
 	</ul>
 </div>
 
-<h2>Новый диск в коллекции пользователя <span th:text="${user.name}">User</span></h2>
+<h2>Взятые диски</h2>
 <hr />
-<form action="/newDisk" method="POST">
-	<input type="hidden" name="owner_id" th:value="${user.id}" />
-	<div>
-		<label for="movieTitle">Название фильма:</label>
-		<input type="text" name="movie_title" id="movieTitle" />
-	</div>
-	<button type="submit">Добавить диск</button>
-</form>
+<ul>
+	<li th:each="item : ${takenDisks}">
+		<span th:text="${item.disk.movieTitle}">Title</span>, взят пользователем&nbsp;
+		<span th:text="${item.tenant.name}">User</span>
+	</li>
+</ul>
 </body>
 </html>

@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import ru.nergal.domain.UserRepository;
-import ru.nergal.domain.DiskRepository;
-import ru.nergal.domain.Disk;
+import ru.nergal.domain.*;
 
 /**
  * Created by terekhov-ev on 24.03.2017.
@@ -15,11 +13,13 @@ import ru.nergal.domain.Disk;
 public class RootController {
 	private UserRepository ur;
 	private DiskRepository dr;
+	private TakenItemRepository tir;
 
 	@Autowired
-	public RootController(UserRepository ur, DiskRepository dr) {
+	public RootController(UserRepository ur, DiskRepository dr, TakenItemRepository tir) {
 		this.ur = ur;
 		this.dr = dr;
+		this.tir = tir;
 	}
 
 
@@ -44,5 +44,11 @@ public class RootController {
 		disk.setOwner(ur.findOne(userId));
 		dr.save(disk);
 		return "redirect:/";
-    }    
+    }
+
+    @RequestMapping(value="/takenDisks", method=RequestMethod.GET)
+    public String showTakenDisks(Model model) {
+    	model.addAttribute("takenDisks", tir.findAll());
+    	return "takenDisks";
+    }
 }
