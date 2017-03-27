@@ -20,6 +20,9 @@ public class Disk {
     @JoinColumn(name="disk_owner_id")
     private User owner;
 
+    @OneToOne(mappedBy = "disk")
+    private TakenItem taken;
+
     public long getId() {
     	return this.id;
     }
@@ -38,5 +41,13 @@ public class Disk {
 
     public void setOwner(User newOwner) {
     	this.owner = newOwner;
+    }
+
+    public TakenItem getTaken() {
+        return taken;
+    }
+
+    public void setTaken(TakenItem taken) {
+        this.taken = taken;
     }
 }

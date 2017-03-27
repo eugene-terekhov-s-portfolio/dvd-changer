@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>DVD-changer: Free Disks</title>
+</head>
+<body>
+<h1>DVD-changer:</h1>
+
+<div id="navigationMenu">
+    <ul>
+        <li><a href="/newDisk">Новый диск</a></li>
+        <li><a href="/freeDisks">Доступные диски</a></li>
+        <li><a href="/takenDisks">Взятые диски</a></li>
+        <li><a href="/users">Пользователи системы</a></li>
+    </ul>
+</div>
+
+<h2>Доступные диски</h2>
+<hr />
+<ul>
+    <li th:each="disk : ${freeDisks}">
+        <span th:text="${disk.movieTitle}">Title</span>, владелец&nbsp;<span th:text="${disk.owner.name}">User</span>
+    </li>
+</ul>
+</body>
+</html>

@@ -51,4 +51,10 @@ public class RootController {
     	model.addAttribute("takenDisks", tir.findAll());
     	return "takenDisks";
     }
+
+	@RequestMapping(value="/freeDisks", method = RequestMethod.GET)
+	public String showFreeDisks(Model model) {
+		model.addAttribute("freeDisks", dr.findAllFree());
+		return "freeDisks";
+	}
 }

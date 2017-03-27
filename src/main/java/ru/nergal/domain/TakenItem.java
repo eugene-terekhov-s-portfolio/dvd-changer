@@ -13,7 +13,7 @@ public class TakenItem {
     @Column(name="item_id")
     private long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="disk_id")
     private Disk disk;
 

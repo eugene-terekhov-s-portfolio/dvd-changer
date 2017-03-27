@@ -4,7 +4,7 @@
     <title>DVD-Changer: Home Page</title>
 </head>
 <body>
-<h1>My disks:</h1>
+<h1>DVD-changer:</h1>
 
 <div id="navigationMenu">
 	<ul>
@@ -14,10 +14,14 @@
 		<li><a href="/users">Пользователи системы</a></li>
 	</ul>
 </div>
-
+<h2>Мои диски</h2>
+<hr />
 <div id="disksCollection">
 	<ul>
-		<li th:each="disk : ${user.disks}" th:text="${disk.movieTitle}">Content</li>
+		<li th:each="disk : ${user.disks}">
+			<span th:text="${disk.movieTitle}">Title</span>
+			<span th:if="${disk.taken}">, взят пользователем&nbsp;<span th:text="${disk.taken.tenant.name}">User</span></span>
+		</li>
 	</ul>
 </div>
 
