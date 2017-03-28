@@ -25,7 +25,9 @@ public class RootController {
 
     @RequestMapping(value = "/")
     public String showHomePage(Model model) {
-        model.addAttribute("user", ur.findOne((long)1));
+        User user = ur.findOne((long)1);
+		model.addAttribute("user", user);
+		model.addAttribute("takenByMe", tir.findByTenant(user));
         return "home";
     }
 
@@ -56,5 +58,17 @@ public class RootController {
 	public String showFreeDisks(Model model) {
 		model.addAttribute("freeDisks", dr.findAllFree());
 		return "freeDisks";
+	}
+
+	@RequestMapping(value = "/takeDisk", method = RequestMethod.POST)
+	public String takeDisk(@RequestParam(value = "diskId") long diskId) {
+		Disk disk = dr.findOne(diskId);
+		User user = ur.findOne((long)1);
+		TakenItem ti = new TakenItem();
+		ti.setDisk(disk);
+		ti.setTenant(user);
+		tir.save(ti);
+
+		return "redirect:/";
 	}
 }

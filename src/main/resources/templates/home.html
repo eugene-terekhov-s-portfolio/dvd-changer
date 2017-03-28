@@ -24,7 +24,15 @@
 		</li>
 	</ul>
 </div>
-
+<h2>Взятые мной</h2>
+<hr />
+<div id="rentedDisks">
+	<ul>
+		<li th:each="ti : ${takenByMe}">
+			<span th:text="${ti.disk.movieTitle}">Title</span>, владелец&nbsp;<span th:text="${ti.disk.owner.name}">User</span>
+		</li>
+	</ul>
+</div>
 
 </body>
 </html>

@@ -17,10 +17,20 @@
 
 <h2>Доступные диски</h2>
 <hr />
-<ul>
-    <li th:each="disk : ${freeDisks}">
-        <span th:text="${disk.movieTitle}">Title</span>, владелец&nbsp;<span th:text="${disk.owner.name}">User</span>
-    </li>
-</ul>
+<form action="takeDisk" method="post">
+    <input type="hidden" name="diskId" id="diskId"/>
+    <ul>
+        <li th:each="disk : ${freeDisks}">
+            <span th:text="${disk.movieTitle}">Title</span>, владелец&nbsp;
+            <span th:text="${disk.owner.name}">User</span>&nbsp;
+            <button type="submit" th:onclick="'javascript:takeDisk(\'' + ${disk.id} + '\');'">Взять</button>
+        </li>
+    </ul>
+</form>
+<script>
+    function takeDisk(diskId) {
+        document.getElementById('diskId').value = diskId;
+    }
+</script>
 </body>
 </html>
