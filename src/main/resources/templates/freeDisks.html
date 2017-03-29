@@ -8,6 +8,7 @@
 
 <div id="navigationMenu">
     <ul>
+        <li><a href="/collection">Моя коллекция</a></li>
         <li><a href="/newDisk">Новый диск</a></li>
         <li><a href="/freeDisks">Доступные диски</a></li>
         <li><a href="/takenDisks">Взятые диски</a></li>
@@ -17,8 +18,9 @@
 
 <h2>Доступные диски</h2>
 <hr />
-<form action="takeDisk" method="post">
+<form th:action="@{/takeDisk}" method="post">
     <input type="hidden" name="diskId" id="diskId"/>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <ul>
         <li th:each="disk : ${freeDisks}">
             <span th:text="${disk.movieTitle}">Title</span>, владелец&nbsp;

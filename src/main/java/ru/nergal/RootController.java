@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import ru.nergal.domain.*;
 
-/**
- * Created by terekhov-ev on 24.03.2017.
- */
 @Controller(value = "/")
 public class RootController {
 	private UserRepository ur;
@@ -22,13 +19,18 @@ public class RootController {
 		this.tir = tir;
 	}
 
+	@RequestMapping(value = {"/", "/home"})
+	public String showHomePage() {
+		return "home";
+	}
 
-    @RequestMapping(value = "/")
+
+    @RequestMapping(value = "/collection")
     public String showHomePage(Model model) {
         User user = ur.findOne((long) 1);
 		model.addAttribute("user", user);
 		model.addAttribute("takenByMe", tir.findByTenant(user));
-        return "home";
+        return "collection";
     }
 
     @RequestMapping(value = "/newDisk", method=RequestMethod.GET) 
@@ -70,12 +72,17 @@ public class RootController {
 		ti.setTenant(user);
 		tir.save(ti);
 
-		return "redirect:/";
+		return "redirect:/collection";
 	}
 
 	@RequestMapping(value = "/returnDisk", method = RequestMethod.POST)
 	public String returnDisk(@RequestParam(value = "tiId") long tiId) {
 		tir.delete(tir.findOne(tiId));
-		return "redirect:/";
+		return "redirect:/collection";
+	}
+
+	@RequestMapping(value={"/login"})
+	public String login(){
+		return "login";
 	}
 }
