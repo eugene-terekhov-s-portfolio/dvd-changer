@@ -1,6 +1,8 @@
 package ru.nergal.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,6 +22,35 @@ public class User {
     @OneToMany(mappedBy="owner")
     private Set<Disk> disks;
 
+    @Column(name="login")
+    private String login;
+
+    @Column(name="password")
+    private String password;
+
+    @Column(name="enabled")
+    private int enabled;
+
+    @ElementCollection(targetClass = UserRoles.class)
+    @CollectionTable(schema="DVD", name="M_USER_ROLES")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
+    private List<UserRoles> userRoles;
+
+
+    public User(String userName, String login, String password) {
+        this.name = userName;
+        this.login = login;
+        this.password = password;
+        this.enabled = 1;
+        this.userRoles = new ArrayList<UserRoles>();
+        this.userRoles.add(UserRoles.USER);
+    }
+
+    public User() {
+
+    }
+
     public long getId() {
         return this.id;
     }
@@ -34,5 +65,9 @@ public class User {
 
     public Set<Disk> getDisks() {
         return this.disks;
+    }
+
+    public String getLogin() {
+        return login;
     }
 }

@@ -1,18 +1,18 @@
 INSERT INTO "DVD"."C_USERS" VALUES (
-	NEXTVAL('DVD.SEQ_C_USERS'), 'Eugene', 'eugene', '12345',1
+	NEXTVAL('DVD.SEQ_C_USERS'), 'Евгений', 'eugene', '12345',1
 );
 INSERT INTO "DVD"."C_USERS" VALUES (
-	NEXTVAL('DVD.SEQ_C_USERS'), 'Elena', 'elena', '67890',1
+	NEXTVAL('DVD.SEQ_C_USERS'), 'Елена', 'elena', '67890',1
 );
 
 INSERT INTO "DVD"."M_USER_ROLES" VALUES (
-	NEXTVAL('DVD.SEQ_M_USER_ROLES'), 'admin', 1
+	'admin', 1
 );
 INSERT INTO "DVD"."M_USER_ROLES" VALUES (
-	NEXTVAL('DVD.SEQ_M_USER_ROLES'), 'user', 1
+	'user', 1
 );
 INSERT INTO "DVD"."M_USER_ROLES" VALUES (
-	NEXTVAL('DVD.SEQ_M_USER_ROLES'), 'user', 2
+	'user', 2
 );
 
 INSERT INTO "DVD"."R_DISKS" VALUES (

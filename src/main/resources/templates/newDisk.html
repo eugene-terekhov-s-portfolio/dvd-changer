@@ -6,19 +6,12 @@
 <body>
 <h1>DVD-changer:</h1>
 
-<div id="navigationMenu">
-	<ul>
-		<li><a href="/collection">Моя коллекция</a></li>
-		<li><a href="/newDisk">Новый диск</a></li>
-		<li><a href="/freeDisks">Доступные диски</a></li>
-		<li><a href="/takenDisks">Взятые диски</a></li>
-		<li><a href="/users">Пользователи системы</a></li>
-	</ul>
-</div>
+<div th:replace="fragments/menu :: menu" ></div>
 
 <h2>Новый диск в коллекции пользователя <span th:text="${user.name}">User</span></h2>
 <hr />
-<form action="/newDisk" method="POST">
+<form th:action="@{/newDisk}" method="POST">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 	<input type="hidden" name="owner_id" th:value="${user.id}" />
 	<div>
 		<label for="movieTitle">Название фильма:</label>
