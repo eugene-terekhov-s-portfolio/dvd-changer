@@ -20,8 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // auth.inMemoryAuthentication().withUser("admin").password("12345").roles("USER");
 
         auth.jdbcAuthentication().dataSource(dataSource)
-            .usersByUsernameQuery("select login as username, password, enabled from dvd.c_users where login = ?")
-            .authoritiesByUsernameQuery("select u.login as username, ur.user_role as authority from dvd.c_users u join dvd.m_user_roles ur on u.user_id=ur.user_user_id and u.login = ?");
+            .usersByUsernameQuery("select login as username, password, enabled from dvd.users where login = ?")
+            .authoritiesByUsernameQuery("select u.login as username, ur.user_role as authority from dvd.users u join dvd.user_roles ur on u.user_id=ur.user_user_id and u.login = ?");
     }
 
     @Override

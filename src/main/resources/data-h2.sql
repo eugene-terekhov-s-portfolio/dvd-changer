@@ -1,33 +1,57 @@
-INSERT INTO "DVD"."C_USERS" VALUES (
-	NEXTVAL('DVD.SEQ_C_USERS'), 'Евгений', 'eugene', '12345',1
+INSERT INTO "DVD"."USERS" VALUES (
+	NEXTVAL('DVD.SEQ_USERS'), 'Евгений', 'eugene', '12345',1
 );
-INSERT INTO "DVD"."C_USERS" VALUES (
-	NEXTVAL('DVD.SEQ_C_USERS'), 'Елена', 'elena', '67890',1
+INSERT INTO "DVD"."USERS" VALUES (
+	NEXTVAL('DVD.SEQ_USERS'), 'Елена', 'elena', '67890',1
 );
 
-INSERT INTO "DVD"."M_USER_ROLES" VALUES (
+INSERT INTO "DVD"."USER_ROLES" VALUES (
 	'admin', 1
 );
-INSERT INTO "DVD"."M_USER_ROLES" VALUES (
+INSERT INTO "DVD"."USER_ROLES" VALUES (
 	'user', 1
 );
-INSERT INTO "DVD"."M_USER_ROLES" VALUES (
+INSERT INTO "DVD"."USER_ROLES" VALUES (
 	'user', 2
 );
 
-INSERT INTO "DVD"."R_DISKS" VALUES (
-	NEXTVAL('DVD.SEQ_R_DISKS'), 'Рыбка Поньо на утесе', 1 
+INSERT INTO "DVD"."DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_DISKS'), 12429, 1 
 );
-INSERT INTO "DVD"."R_DISKS" VALUES (
-	NEXTVAL('DVD.SEQ_R_DISKS'), 'Крупная рыба', 1 
+INSERT INTO "DVD"."DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_DISKS'), 587, 1 
 );
-INSERT INTO "DVD"."R_DISKS" VALUES (
-	NEXTVAL('DVD.SEQ_R_DISKS'), 'Жизнь как чудо', 1 
+INSERT INTO "DVD"."DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_DISKS'), 20128, 1 
 );
-INSERT INTO "DVD"."R_DISKS" VALUES (
-	NEXTVAL('DVD.SEQ_R_DISKS'), 'Грязные танцы', 2
+INSERT INTO "DVD"."DISKS" VALUES (
+	NEXTVAL('DVD.SEQ_DISKS'), 88, 2
 );
 
-INSERT INTO "DVD"."R_TAKEN_ITEMS" VALUES (
-	NEXTVAL('DVD.SEQ_R_TAKEN_ITEMS'), 2, 1
+INSERT INTO "DVD"."TAKEN_ITEMS" VALUES (
+	NEXTVAL('DVD.SEQ_TAKEN_ITEMS'), 2, 1
+);
+
+INSERT INTO "DVD"."MOVIES" VALUES (
+	12429, '/kKiAVtcXkuUFlUDtgZvYYWa4dAg.jpg', 'Рыбка Поньо на утесе', '崖の上のポニョ', 
+	'Маленькая любопытная рыбка Поньо — дочь колдуна и прекрасной морской богини уплывает из дома, чтобы понаблюдать за жизнью людей. Поньо застревает в банке и оказывается выброшенной на берег. Ее подбирает пятилетний Сооскэ. Малыши привязываются друг к другу. И теперь у Поньо только одно желание — стать человеком!',
+	2008, 7.5
+);
+
+INSERT INTO "DVD"."MOVIES" VALUES (
+	587, '/sGWsA5oIALgw0UYrShM391BwrvR.jpg', 'Крупная рыба', 'Big Fish', 
+	'В основу этой приключенческой ленты положен роман Дэниела Уоллеса «Большая рыба: роман мифических пропорций». Умирает отец, о жизни которого сын хочет узнать как можно больше, собирая истории о нем.Сын пытается воссоздать ускользающую жизнь отца в серии легенд и мифов, которые тот придумывает на основе разрозненных фактов. Взлеты и падения в жизни человека в итоге предстают в неожиданном ракурсе.',
+	2003, 7.5
+);
+
+INSERT INTO "DVD"."MOVIES" VALUES (
+	20128, '/1RkkgYq0OIrnjckrTmLqNkF2ohB.jpg', 'Жизнь как чудо', 'Život je čudo', 
+	'Главный герой — Лука — немножко сумасшедший железнодорожник, который строит тоннель между Балканами и остальным миром. Жена Луки — Джарданка — певица, сбегает с венгерским музыкантом. Их сын Милош мечтает стать футболистом, однако таланта к игре у него не слишком много. Странная семейка постепенно распадается: жена сбегает, сына забирают в армию, отец всё дальше углубляется в связующий разные культуры тоннель… Разрешится ли сложный, коварный конфликт отцов и детей? Может ли новая женщина отца стать препятствием в отношениях с сыном? Победит ли любовь, или бессильно голодное сердце, алчущее любви, против барьеров, установленных обществом?',
+	2004, 7.2
+);
+
+INSERT INTO "DVD"."MOVIES" VALUES (
+	88, '/itJqvez29jQiIlDuxemxEOWjs8.jpg', 'Грязные танцы', 'Dirty Dancing', 
+	'Лето 1963 года. 17-летняя Фрэнсис по прозвищу Бэби, невинная избалованная девушка из обеспеченной семьи, проводит каникулы с родителями в курортном отеле. Она знакомится с Джонни, красивым профессиональным танцором, искушенным в вопросах жизни и любви.Словно околдованная сексуальными ритмами и ничем не сдерживаемыми движениями «грязных танцев» в стиле ритм-энд-блюз, Бэби становится ученицей-партнершей Джонни — и в танцах и в любви.',
+	1987, 6.9
 );

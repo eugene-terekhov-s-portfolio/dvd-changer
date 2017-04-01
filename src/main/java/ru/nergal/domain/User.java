@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(schema="DVD", name="C_USERS")
+@Table(schema="DVD", name="USERS")
 @SequenceGenerator(name=User.SEQUENCE_NAME, sequenceName=User.SEQUENCE_NAME, schema="DVD", allocationSize = 20)
 public class User {
-    public static final String SEQUENCE_NAME = "SEQ_C_USERS";
+    public static final String SEQUENCE_NAME = "SEQ_USERS";
 
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator=User.SEQUENCE_NAME)

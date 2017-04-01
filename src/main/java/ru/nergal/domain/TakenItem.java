@@ -3,10 +3,10 @@ package ru.nergal.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(schema="DVD", name="R_TAKEN_ITEMS")
+@Table(schema="DVD", name="TAKEN_ITEMS")
 @SequenceGenerator(name=TakenItem.SEQUENCE_NAME, sequenceName=TakenItem.SEQUENCE_NAME, schema="DVD", allocationSize = 20)
 public class TakenItem {
-    public static final String SEQUENCE_NAME = "SEQ_R_TAKEN_ITEMS";
+    public static final String SEQUENCE_NAME = "SEQ_TAKEN_ITEMS";
 
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator=TakenItem.SEQUENCE_NAME)

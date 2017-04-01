@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+	<div th:replace="fragments/menu :: meta"></div>
     <title>DVD-Changer: Home Page</title>
 </head>
 <body>
-<h1>DVD-changer:</h1>
-
-<div th:replace="fragments/menu :: menu" ></div>
+<div th:replace="fragments/menu :: navBar (user=${user})" ></div>
 <h2>Мои диски</h2>
 <hr />
 <div id="disksCollection">
-	<ul>
-		<li th:each="disk : ${user.disks}">
-			<span th:text="${disk.movieTitle}">Title</span>
-			<span th:if="${disk.taken}">, взят пользователем&nbsp;<span th:text="${disk.taken.tenant.name}">User</span></span>
-		</li>
+	<ul class="media-list" th:each="disk : ${user.disks}">
+		<div th:replace="fragments/disks :: disks(${disk})" />
 	</ul>
 </div>
 <h2>Взятые мной</h2>
@@ -31,6 +27,7 @@
 		</ul>
 	</div>
 </form>
+<div th:replace="fragments/menu :: scripts"></div>
 <script>
 	function returnDisk(tiId) {
 		document.getElementById('tiId').value=tiId;
