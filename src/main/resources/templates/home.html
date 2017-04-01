@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>DVD Changer</title>
-</head>
-<body>
-<h1>DVD Changer <small>Приложение для обмена DVD-дисками</small></h1>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<p>Пожалуйста, <a th:href="@{/register}" href="#">зарегистрируйтесь</a> или <a href="#" th:href="@{/collection}">войдите</a> в систему</p>
+    <title>DVD Changer</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/css/bootstrap-theme.css" />
+
+</head>
+<body class="container">
+<div class="jumbotron">
+    <h1>DVD Changer</h1>
+    <p class="lead">Приложение для обмена DVD-дисками</p>
+</div>
+
+<div class="row">
+    <p>Пожалуйста, <a th:href="@{/register}" href="#">зарегистрируйтесь</a> или <a href="#" th:href="@{/collection}">войдите</a> в систему</p>
+</div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
 </body>
 </html>

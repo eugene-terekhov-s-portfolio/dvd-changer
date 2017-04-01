@@ -2,22 +2,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DVD Changer: Login</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/css/bootstrap-theme.css" />
 </head>
-<body>
-<h1>DVD Changer: Login page</h1>
-
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
+<body class="container">
+<div class="jumbotron">
+    <h1>DVD Changer</h1>
+    <p class="lead">Страница входа</p>
 </div>
 
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
+<form class="form form-horizontal" th:action="@{/login}" method="post">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="username">Логин:</label>
+        <div class="col-sm-3">
+            <input class="form-control" type="text" name="username" id="username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="password">Пароль</label>
+        <div class="col-sm-3">
+            <input class="form-control" type="password" name="password" id="password" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="bg-danger" th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div class="bg-danger" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-primary" type="submit">Войти</button>
+    </div>
 </form>
 </body>
 </html>
