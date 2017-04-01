@@ -68,6 +68,7 @@ public class RootController {
 	public String showFreeDisks(Model model, Principal principal) {
 		User user = ur.findByLogin(principal.getName());
 		model.addAttribute("freeDisks", dr.findAllFree(user));
+		model.addAttribute("user", user);
 		return "freeDisks";
 	}
 
