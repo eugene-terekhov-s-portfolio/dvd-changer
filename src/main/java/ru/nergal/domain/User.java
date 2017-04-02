@@ -32,7 +32,7 @@ public class User {
     private int enabled;
 
     @ElementCollection(targetClass = UserRoles.class)
-    @CollectionTable(schema="DVD", name="M_USER_ROLES")
+    @CollectionTable(schema="DVD", name="USER_ROLES")
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     private List<UserRoles> userRoles;

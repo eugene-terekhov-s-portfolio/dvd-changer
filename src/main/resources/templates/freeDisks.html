@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <div th:replace="fragments/menu :: meta"></div>
     <title>DVD-changer: Free Disks</title>
 </head>
-<body>
-<h1>DVD-changer:</h1>
-
+<body class="container">
 <div th:replace="fragments/menu :: navBar (user=${user})" ></div>
 
 <h2>Доступные диски</h2>
 <hr />
-<form th:action="@{/takeDisk}" method="post">
-    <input type="hidden" name="diskId" id="diskId"/>
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <ul>
-        <li th:each="disk : ${freeDisks}">
-            <span th:text="${disk.movieTitle}">Title</span>, владелец&nbsp;
-            <span th:text="${disk.owner.name}">User</span>&nbsp;
-            <button class="btn btn-primary" type="submit" th:onclick="'javascript:takeDisk(\'' + ${disk.id} + '\');'">Взять</button>
-        </li>
-    </ul>
-</form>
+<div id="disksCollection">
+    <form class="form form-horizontal" th:action="@{/takeDisk}" method="post">
+        <input type="hidden" name="diskId" id="diskId"/>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <ul th:each="disk : ${freeDisks}">
+            <div th:replace="fragments/disks :: disks(${disk}, ${user})" />
+        </ul>
+    </form>    
+</div>
+<div th:replace="fragments/menu :: scripts"></div>
 <script>
     function takeDisk(diskId) {
         document.getElementById('diskId').value = diskId;

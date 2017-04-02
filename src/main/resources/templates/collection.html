@@ -10,7 +10,7 @@
 <hr />
 <div id="disksCollection">
 	<ul class="media-list" th:each="disk : ${user.disks}">
-		<div th:replace="fragments/disks :: disks(${disk})" />
+		<div th:replace="fragments/disks :: disks(${disk}, ${user})" />
 	</ul>
 </div>
 <h2>Взятые мной</h2>
@@ -20,7 +20,7 @@
 	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 	<div id="rentedDisks">
 		<ul class="media-list" th:each="ti : ${takenByMe}">
-			<div th:replace="fragments/disks :: takenItems(${ti})" />
+			<div th:replace="fragments/disks :: takenItems(${ti}, ${user})" />
 		</ul>
 	</div>
 </form>
