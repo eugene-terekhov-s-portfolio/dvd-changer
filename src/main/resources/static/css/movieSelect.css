@@ -1,0 +1,41 @@
+.select2-result-movie { 
+	padding-top: 4px; 
+	padding-bottom: 3px; 
+}
+
+.select2-result-movie_poster { 
+	float: left; 
+	width: 60px; 
+	margin-right: 10px; 
+}
+
+.select2-result-movie_poster img {
+	width: 100%; 
+	height: auto; 
+	border-radius: 2px; 
+}
+
+.select2-result-movie_meta { 
+	margin-left: 70px; 
+}
+
+.select2-result-movie_title { 
+	color: black; 
+	font-weight: bold; 
+	word-wrap: break-word; 
+	line-height: 1.1; 
+	margin-bottom: 4px; 
+}
+
+.select2-result-movie_rating { 
+	margin-right: 1em; 
+	display: inline-block; 
+	color: #aaa; 
+	font-size: 11px; 
+}
+
+.select2-result-movie_overview { 
+	font-size: 10px; 
+	color: #aaa; 
+	margin-top: 4px; 
+}

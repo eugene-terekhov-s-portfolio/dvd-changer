@@ -56,14 +56,16 @@ public class Movie {
 		return this.rating;
 	}
 
-}
+	public Movie() {};
 
-/*
-( "MOVIE_ID" NUMBER PRIMARY KEY,
-  "POSTER_PATH" VARCHAR(50 CHAR),
-  "TITLE" VARCHAR(100 CHAR) NOT NULL,
-  "ORIGINAL TITLE" VARCHAR(100 CHAR) NOT NULL,
-  "OVERVIEW" VARCHAR (1000 CHAR) NOT NULL,
-  "RELEASE_YEAR" NUMBER,
-  "VOTE_AVERAGE" NUMBER
-*/
+	public Movie(long id, String title, String originalTitle, String posterPath, 
+				 String overview, int releaseYear, double rating) {
+		this.id = id;
+		this.title = title;
+		this.originalTitle = originalTitle;
+		this.poster = posterPath;
+		this.overview = overview;
+		this.releaseYear = releaseYear;
+		this.rating = rating;
+	}
+}

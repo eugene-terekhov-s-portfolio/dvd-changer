@@ -18,12 +18,15 @@ public class RootController {
 	private UserRepository ur;
 	private DiskRepository dr;
 	private TakenItemRepository tir;
+	private MovieRepository mr;
 
 	@Autowired
-	public RootController(UserRepository ur, DiskRepository dr, TakenItemRepository tir) {
+	public RootController(UserRepository ur, DiskRepository dr, 
+						  TakenItemRepository tir, MovieRepository mr) {
 		this.ur = ur;
 		this.dr = dr;
 		this.tir = tir;
+		this.mr = mr;
 	}
 
 	@RequestMapping(value = {"/", "/home"})
@@ -50,10 +53,18 @@ public class RootController {
     @RequestMapping(value = "/newDisk", method=RequestMethod.POST) 
     public String createNewDisk(
     		@RequestParam(value="owner_id") Long userId,
-    		@RequestParam(value="movie_title") String movieTitle) {
-		Disk disk = new Disk();
-		disk.setMovieTitle(movieTitle);
-		disk.setOwner(ur.findOne(userId));
+    		@RequestParam(value="movieId") Long movieId,
+    		@RequestParam(value="movieTitle") String movieTitle,
+    		@RequestParam(value="originalTitle") String originalTitle,
+    		@RequestParam(value="posterPath") String posterPath,
+			@RequestParam(value="overview") String overview,
+			@RequestParam(value="releaseYear") int releaseYear,
+			@RequestParam(value="rating") double rating
+    		) {
+		Movie movie = new Movie(movieId, movieTitle, originalTitle, 
+			                    posterPath, overview, releaseYear, rating);
+		mr.save(movie);
+		Disk disk = new Disk(movie, ur.findOne(userId));
 		dr.save(disk);
 		return "redirect:/collection";
     }

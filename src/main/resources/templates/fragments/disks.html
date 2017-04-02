@@ -5,12 +5,30 @@
 	  </div>
 	  <div class="media-body">
 	  	<div>
-		    <h4 class="media-heading" th:text="${disk.movie.title}">Название фильма</h4>
+		    <h4 class="media-heading" th:text="${disk.movie.title + ' (' + disk.movie.originalTitle + ', ' + disk.movie.releaseYear + ')'}">Название фильма</h4>
 	    	<p th:text="${disk.movie.overview}">Сюжет фильма</p>
-	    	<p>Рейтинг: <span th:text="${disk.movie.rating}">10</span></p>
+	    	<p><span class="glyphicon glyphicon-star"></span><span th:text="${disk.movie.rating}">10</span></p>
 	    </div>
 	    <div th:if="${disk.taken}">
 			<p>Взят пользователем&nbsp;<span th:text="${disk.taken.tenant.name}">User</span></p>
+	    </div>
+	  </div>
+	</li>	
+</div>
+
+<div th:fragment="takenItems(ti)">
+	<li class="media">
+	  <div class="media-left">
+	      <img class="media-object" th:src="${ti.disk.movie.posterUrl}" alt="Постер фильма" />
+	  </div>
+	  <div class="media-body">
+	  	<div>
+		    <h4 class="media-heading" th:text="${ti.disk.movie.title}">Название фильма</h4>
+	    	<p th:text="${ti.disk.movie.overview}">Сюжет фильма</p>
+	    	<p><span class="glyphicon glyphicon-star"></span><span th:text="${ti.disk.movie.rating}">10</span>, владелец <span th:text="${ti.disk.owner.name}">User</span></p>
+	    </div>
+	    <div class="btn-group">
+	    	<button type="submit" class="btn btn-xs btn-primary" th:onclick="'javascript:returnDisk(\'' + ${ti.id} + '\');'">Отдать</button>
 	    </div>
 	  </div>
 	</li>	

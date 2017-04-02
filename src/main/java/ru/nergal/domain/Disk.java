@@ -28,14 +28,6 @@ public class Disk {
     	return this.id;
     }
 
-    public String getMovieTitle() {
-    	return this.movie.getTitle();
-    }
-
-    public void setMovieTitle(String newTitle) {
-    	this.movie.setTitle(newTitle);
-    }
-
     public Movie getMovie() {
         return this.movie;
     }
@@ -44,15 +36,18 @@ public class Disk {
     	return this.owner;
     }
 
-    public void setOwner(User newOwner) {
-    	this.owner = newOwner;
-    }
-
     public TakenItem getTaken() {
         return taken;
     }
 
     public void setTaken(TakenItem taken) {
         this.taken = taken;
+    }
+
+    public Disk() {};
+
+    public Disk(Movie movie, User owner) {
+        this.movie = movie;
+        this.owner = owner;
     }
 }
