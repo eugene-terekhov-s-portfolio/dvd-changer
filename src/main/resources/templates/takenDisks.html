@@ -6,7 +6,7 @@
 </head>
 <body class="container">
 <div th:replace="fragments/menu :: navBar (user=${user})" ></div>
-<h2>Взятые диски</h2>
+<h2>Взятые у меня диски</h2>
 <hr />
 <div id="rentedDisks">
 	<ul class="media-list" th:each="ti : ${takenDisks}">

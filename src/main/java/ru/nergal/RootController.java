@@ -71,8 +71,9 @@ public class RootController {
 
     @RequestMapping(value="/takenDisks", method=RequestMethod.GET)
     public String showTakenDisks(Model model, Principal principal) {
-    	model.addAttribute("takenDisks", tir.findAll());
-		model.addAttribute("user", ur.findByLogin(principal.getName()));
+    	User user = ur.findByLogin(principal.getName());
+		model.addAttribute("takenDisks", tir.findAllTaken(user));
+		model.addAttribute("user", user);
     	return "takenDisks";
     }
 
